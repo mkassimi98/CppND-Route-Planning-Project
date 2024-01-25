@@ -10,6 +10,12 @@
 
 using namespace std::experimental;
 
+template <typename T>
+void getValue(const std::string& prompt, T& value) {
+    std::cout << prompt << ": \n";
+    std::cin >> value;
+}
+
 static std::optional<std::vector<std::byte>> ReadFile(const std::string &path)
 {   
     std::ifstream is{path, std::ios::binary | std::ios::ate};
@@ -55,11 +61,6 @@ int main(int argc, const char **argv)
     // TODO 1: Declare floats `start_x`, `start_y`, `end_x`, and `end_y` and get
     // user input for these values using std::cin. Pass the user input to the
     // RoutePlanner object below in place of 10, 10, 90, 90.
-    template <typename T>
-    void getValue(const std::string& prompt, T& value) {
-        std::cout << prompt << ": \n";
-        std::cin >> value;
-    }
 
     float start_x, start_y, end_x, end_y;
 
