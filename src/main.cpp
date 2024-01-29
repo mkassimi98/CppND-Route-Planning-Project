@@ -13,17 +13,14 @@ using namespace std::experimental;
 template <typename T>
 void getValue(const std::string& prompt, T& value) {
     std::cout << prompt << ": \n";
-    while (true){
+    do{
         std::cin >> value;
-        if(!(cin) || value < 0 || value > 100) {
-        cout << "Invalid entry. Enter a value from 0 to 100: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        std::cin >> value;
+        if(!(std::cin) || value < 0 || value > 100) {
+        std::cout << "Invalid entry. Enter a value from 0 to 100: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }else{break;}
-    }
-    std::cout << prompt << ": \n";
-    std::cin >> value;
+    }while(true);
 }
 
 static std::optional<std::vector<std::byte>> ReadFile(const std::string &path)
